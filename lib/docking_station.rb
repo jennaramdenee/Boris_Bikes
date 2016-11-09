@@ -21,7 +21,7 @@ class DockingStation
 
   def dock_bike(bike_name)
     fail if @all_bikes.length > 0
-    @all_bikes << @bike
+    @all_bikes << bike_name
     @bike = bike_name
   end
 
