@@ -4,8 +4,12 @@ require "./lib/bike"
 describe DockingStation do
   it { is_expected.to respond_to(:release_bike) }
 
+  it 'raises an error when there are no available bikes' do
+    expect { subject.release_bike }.to raise_error
+  end
+
   it 'releases working bikes' do
-    bike = subject.release_bike
+    bike = subject.generate_bike
     expect(bike.working?)
   end
 
@@ -21,6 +25,9 @@ describe DockingStation do
     expect(subject.bike).to eq @bike
   end
 
+  it 'checks for available bikes' do
+    is_expected.to respond_to(:bike_count)
+  end
 
 
 end
