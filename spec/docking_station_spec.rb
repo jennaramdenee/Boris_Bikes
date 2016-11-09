@@ -29,5 +29,10 @@ describe DockingStation do
     is_expected.to respond_to(:bike_count)
   end
 
+  it 'raises an error when docking station is full' do
+    @all_bikes = ['bmx']
+    expect { subject.dock_bike }.to raise_error
+  end
+
 
 end
