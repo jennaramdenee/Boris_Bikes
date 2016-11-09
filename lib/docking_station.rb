@@ -1,4 +1,4 @@
-require './lib/bike'
+#require './lib/bike'
 
 class DockingStation
   attr_accessor :bike
@@ -20,8 +20,8 @@ class DockingStation
   end
 
   def dock_bike(bike_name)
-    fail if @all_bikes.length > 0
-    @all_bikes << @bike
+   fail if @all_bikes.length > 0
+    @all_bikes << bike_name
     @bike = bike_name
   end
 

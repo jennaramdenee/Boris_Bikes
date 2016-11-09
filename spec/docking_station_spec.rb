@@ -34,5 +34,10 @@ describe DockingStation do
     expect { subject.dock_bike }.to raise_error
   end
 
+  it 'adds bike name to array when bike is docked' do
+    subject.dock_bike("Jenna")
+    expect(@all_bikes).to eq ["Jenna"]
+  end
+
 
 end
