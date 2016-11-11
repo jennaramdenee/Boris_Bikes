@@ -1,4 +1,4 @@
-require './lib/docking_station_class.rb'
+require './lib/docking_station.rb'
 
 class Bike
   attr_accessor :broken
@@ -14,6 +14,5 @@ class Bike
   def report_as_broken
     @working = false
   end
-
-
+  
 end

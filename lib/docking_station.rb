@@ -2,11 +2,12 @@ require './lib/bike.rb'
 
 class DockingStation
 
-  attr_accessor :CAPACITY, :all_bikes
+  attr_accessor :CAPACITY, :all_bikes, :broken_bikes
 
   def initialize(capacity = 20)
     @CAPACITY = capacity
     @all_bikes = []
+    @broken_bikes = []
     generate_bike
   end
 
@@ -26,6 +27,16 @@ class DockingStation
   def dock(bike)
     raise(RuntimeError, "Docking station full") if full?
     @all_bikes << bike
+  end
+
+  def load_broken_bikes
+    @all_bikes.each { |bike|
+      unless bike.working?
+        @broken_bikes << bike
+      end
+    }
+    @all_bikes.select! {|bike| bike.working?}
+    return @broken_bikes
   end
 
   private
